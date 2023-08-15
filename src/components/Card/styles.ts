@@ -19,9 +19,8 @@ export const Form = styled.div`
   width: 100%;
 ;
 `
-
 export const Input = styled.input`
-  background: ${(props) => props.theme.colors.gray600};
+  background: ${(props) => props.theme.colors.gray700};
   width: 50%;
   height: 64px;
   line-height:64px;
