@@ -1,6 +1,7 @@
-import { Button, Card, Form, Input, Logo, Title } from "./styles";
+import {Button, Card, Form, Input, Logo, Title } from "./styles";
 import {TfiSearch} from 'react-icons/tfi'
 import React,{useState} from 'react'
+import { Link } from "react-router-dom";
 import github from '../../assets/github-logo.svg'
 
 export function Box(){
@@ -8,10 +9,10 @@ export function Box(){
   return(
     <Card>
       <Logo src={github} alt='Git'/>
-      <Title> Api GitHub</Title>
+      <Title>Api GitHub</Title>
       <Form>
         <Input placeholder="Usuário" value={login} onChange={(event) => setLogin(event.target.value)}/>
-        <Button>
+        <Button to={`/${login}/repositories`}>
           <TfiSearch size={42}/>
         </Button>
       </Form>

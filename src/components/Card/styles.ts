@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Card = styled.div`
   width: 50rem;
@@ -20,7 +21,7 @@ export const Form = styled.div`
 ;
 `
 export const Input = styled.input`
-  background: ${(props) => props.theme.colors.gray700};
+  background: ${(props) => props.theme.colors.black};
   width: 50%;
   height: 64px;
   line-height:64px;
@@ -29,15 +30,17 @@ export const Input = styled.input`
   padding: 10 2px;
   &::placeholder{
     color: ${(props) => props.theme.colors.white};
+    padding: 10px;
   }
 `
-export const Button = styled.button`
+export const Button = styled(Link)`
   display:flex;
   align-items: center;
   justify-content:center;
   background: transparent;
   width: 80px;
   height: 64px;
+  color: ${(props) => props.theme.colors.black};
   border: 3px solid ${(props) => props.theme.colors.white};
   transition: background 0.3s;
   &:hover{
