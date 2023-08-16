@@ -1,7 +1,6 @@
 import {Button, Card, Form, Input, Logo, Title } from "./styles";
 import {TfiSearch} from 'react-icons/tfi'
 import React,{useState} from 'react'
-import { Link } from "react-router-dom";
 import github from '../../assets/github-logo.svg'
 
 export function Box(){
