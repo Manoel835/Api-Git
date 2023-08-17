@@ -10,14 +10,14 @@ export const Container = styled.main`
 `;
 
 export const Sidebar = styled.aside`
-  background: ${(porps) => porps.theme.colors.gray800};
+  background: ${(porps) => porps.theme.colors.black};
   min-width: 20rem;
   max-height: 100vh;
   overflow-y: hidden;
 `;
 
 export const Main = styled.section`
-  background: ${(porps) => porps.theme.colors.gray700};
+  background: ${(porps) => porps.theme.colors.gray900};
   width: 100%;
   overflow-y: hidden;
   padding: 40px;

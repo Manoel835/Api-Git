@@ -1,7 +1,7 @@
 import {Button, Card, Form, Input, Logo, Title } from "./styles";
 import {TfiSearch} from 'react-icons/tfi'
 import React,{useState} from 'react'
-import github from '../../assets/github-logo.svg'
+import github from '../../../assets/github-logo.svg'
 
 export function Box(){
   const [login, setLogin] = useState('');

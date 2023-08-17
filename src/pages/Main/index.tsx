@@ -1,4 +1,4 @@
-import { Box } from '../../components/Card'
+import { Box } from './Card'
 import { Container } from './styles'
 export default function MainPage() {
   return (
