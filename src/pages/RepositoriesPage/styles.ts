@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   display: flex;
-  min-height: 100vh;
+
 
   @media screen and (max-width: 768px){
     flex-direction: column;
@@ -12,7 +12,7 @@ export const Container = styled.main`
 export const Sidebar = styled.aside`
   background: ${(porps) => porps.theme.colors.black};
   min-width: 20rem;
-  max-height: 100vh;
+  height: 100vh;
   overflow-y: hidden;
 `;
 
