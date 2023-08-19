@@ -2,24 +2,37 @@ import React from 'react'
 import { Container, Header, Avatar, Login, Name, Inner, Data  } from './styles'
 import {MdGroup, MdLocationCity, MdWork, MdLink} from 'react-icons/md';
 
-export default function Profile() {
-  return (
+
+
+const Profile = ({ user }: ProfileProps) => (
     <Container>
       <Header>
-        <Avatar src='https://avatars.githubusercontent.com/u/89036370?v=4'/>
-        <Login>Manoel835</Login>
-        <Name>Manoel Felipe</Name>
+        <Avatar src={user.avatar_url}/>
+        <Login>{user.name}</Login>
+        <Name>{user.login}</Name>
       </Header>
       <Inner>
         <Data><MdGroup size={20}/>
-        30&nbsp;<i>seguidores</i>&nbsp;&middot;&nbsp;10&nbsp;<i>seguindo</i></Data>
-        <Data><MdWork size={20}/>Universidade De Brasília</Data>
-        <Data><MdLocationCity size={20}/> Brasília</Data>
-        <Data>
-        <MdLink size={20}/>
-        <a href='https://www.linkedin.com/in/manoel-felipe-84194b231/'>Linkedin</a>
-        </Data>
+        {user.followers}&nbsp;<i>seguidores</i>&nbsp;&middot;&nbsp;{user.following}&nbsp;<i>seguindo</i></Data>
+        {user.company && (<Data><MdWork size={20}/></Data>)}
+        {user.location && (<Data><MdLocationCity size={20}/>{user.location}</Data>)}
+        {user.blog && (<Data><MdLink size={20}/><a href={`\\${user.blog}`}>{user.blog}</a></Data>)}
       </Inner>
     </Container>
-  )
-}
+  );
+  interface User {
+    login: string;
+    name: string;
+    avatar_url: string;
+    followers: number;
+    following: number;
+    company?: string | null;
+    blog?: string | null;
+    location?: string | null;
+  }
+
+  interface ProfileProps {
+    user: User;
+  }
+
+export default Profile;
