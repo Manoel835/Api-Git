@@ -17,9 +17,9 @@ export const RepositoriesPage = () => {
     location: "Brasília, Brazil",
   };
   const repositories = [
-    {name: 'Api-1', description:'Descrição', html_url:'https://github.com/Manoel835/Api-Git', language:'JavaScript'},
-    {name: 'Api-2', description:'Descrição', html_url:'https://github.com/Manoel835/Api-Git', language:'TypeScript'},
-    {name: 'Api-3', description:'Descrição', html_url:'https://github.com/Manoel835/Api-Git', language:'PHP'}
+    {id: '1', name: 'Api-1', description:'Descrição', html_url:'https://github.com/Manoel835/Api-Git', language:'JavaScript'},
+    {id: '2',name: 'Api-2', description:'Descrição', html_url:'https://github.com/Manoel835/Api-Git', language:'TypeScript'},
+    {id: '3',name: 'Api-3', description:'Descrição', html_url:'https://github.com/Manoel835/Api-Git', language:'PHP'}
   ];
 
   interface LanguageStats {
@@ -51,7 +51,7 @@ export const RepositoriesPage = () => {
         <Filter languages={formattedStats}/>
       </Sidebar>
       <Main>
-        <Repositories/>
+        <Repositories repositories={repositories}/>
       </Main>
     </Container>
   )

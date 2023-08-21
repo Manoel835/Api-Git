@@ -1,15 +1,22 @@
 import React from 'react'
 import { Container } from './styles'
 import Repository from './Repository'
-export default function Repositories() {
-  return (
-    <Container>
-      <Repository/>
-      <Repository/>
-      <Repository/>
-      <Repository/>
-      <Repository/>
-      <Repository/>
-    </Container>
-  )
+
+const Repositories =({repositories} : RepositoriesProps) => {
+  const repos = repositories.map((repository) => (
+    <Repository key={repository.id} repository={repository}/>
+  ));
+  return<Container>{repos}</Container>
+};
+
+interface Repo {
+  id: string;
+  name: string;
+  description: string;
+  html_url: string;
+  language?: string | null;
 }
+interface RepositoriesProps {
+  repositories : Repo[];
+}
+export default  Repositories
