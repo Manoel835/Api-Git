@@ -1,12 +1,9 @@
 import React from 'react'
 import { Container, Selector, Cleaner} from './styles'
 
-export default function Filter() {
-  const langs =[
-    {name:'JavaScript', count: 5, color: '#FCC419'},
-    {name:'TypeScript', count: 5, color: '#4263Eb'},
-  ];
-  const selectors = langs.map(({name, count, color}) => (
+export default function Filter({languages} : FilterProps) {
+
+  const selectors = languages.map(({name, count, color}) => (
     <Selector
       key={name.toLowerCase()}
       color={color}
@@ -24,4 +21,12 @@ export default function Filter() {
       </Cleaner>
     </Container>
   )
+}
+interface Languages {
+  name: string;
+  count: number;
+  color: string;
+}
+interface FilterProps{
+  languages: Languages[];
 }
