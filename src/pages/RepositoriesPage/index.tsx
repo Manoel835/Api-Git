@@ -1,13 +1,27 @@
-import React, {useState} from 'react'
-import{Container, Sidebar, Main} from './styles';
+import React, {useEffect, useState} from 'react'
+import{Loading, Container, Sidebar, Main} from './styles';
 import Profile from './Profile';
 import Filter from './filter';
 import Repositories from './Repositories';
 import { langColors } from '../../services/config';
+import {getUser} from '../../services/api';
 
 export const RepositoriesPage = () => {
+  const [user, setUser] = useState()
   const [currentLanguage, setcurrentLanguage] = useState<string | undefined>();
-  const user = {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const userlogin = {login:"Manoel835" }
+    const loadData = async () => {
+      const [userResponse] = await Promise.all([getUser(userlogin)]);
+      setUser(userResponse.data);
+      setLoading(false);
+    };
+    loadData();
+  }, []);
+
+ /* const user = {
     login: "Manoel835",
     name: "Manoel Felipe",
     avatar_url: "https://avatars.githubusercontent.com/u/89036370?v=4",
@@ -17,6 +31,8 @@ export const RepositoriesPage = () => {
     blog: null,
     location: "Brasília, Brazil",
   };
+  */
+
   const repositories = [
     {id: '1', name: 'Api-1', description:'Descrição', html_url:'https://github.com/Manoel835/Api-Git', language:'JavaScript'},
     {id: '2',name: 'Api-2', description:'Descrição', html_url:'https://github.com/Manoel835/Api-Git', language:'TypeScript'},
@@ -44,10 +60,13 @@ export const RepositoriesPage = () => {
     }))
     .sort((a, b) => b.count - a.count);
 
+  if(loading){
+    return<Loading>Carregando...</Loading>
+  }
   return(
     <Container>
       <Sidebar>
-        <Profile user={user}/>
+       { user && <Profile user={user}/>}
         <Filter languages={formattedStats} currentLanguage={currentLanguage} onClick={(name) => setcurrentLanguage(name)}/>
       </Sidebar>
       <Main>

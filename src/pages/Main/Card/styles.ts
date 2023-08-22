@@ -28,6 +28,7 @@ export const Input = styled.input`
   border: none;
   margin-right: 24px;
   padding: 10 2px;
+  color: ${(props) => props.theme.colors.white};
   &::placeholder{
     color: ${(props) => props.theme.colors.white};
     padding: 10px;

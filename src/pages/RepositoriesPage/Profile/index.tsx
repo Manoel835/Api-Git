@@ -26,9 +26,9 @@ const Profile = ({ user }: ProfileProps) => (
     avatar_url: string;
     followers: number;
     following: number;
-    company?: string | null;
-    blog?: string | null;
-    location?: string | null;
+    company?: string ;
+    blog?: string;
+    location?: string;
   }
 
   interface ProfileProps {
