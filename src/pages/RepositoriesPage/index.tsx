@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import{Container, Sidebar, Main} from './styles';
 import Profile from './Profile';
 import Filter from './filter';
@@ -6,6 +6,7 @@ import Repositories from './Repositories';
 import { langColors } from '../../services/config';
 
 export const RepositoriesPage = () => {
+  const [currentLanguage, setcurrentLanguage] = useState<string | undefined>();
   const user = {
     login: "Manoel835",
     name: "Manoel Felipe",
@@ -42,16 +43,15 @@ export const RepositoriesPage = () => {
       color: langColors[language.toLowerCase()],
     }))
     .sort((a, b) => b.count - a.count);
-  console.log(formattedStats);
 
   return(
     <Container>
       <Sidebar>
         <Profile user={user}/>
-        <Filter languages={formattedStats}/>
+        <Filter languages={formattedStats} currentLanguage={currentLanguage} onClick={(name) => setcurrentLanguage(name)}/>
       </Sidebar>
       <Main>
-        <Repositories repositories={repositories}/>
+        <Repositories repositories={repositories}  currentLanguage={currentLanguage}/>
       </Main>
     </Container>
   )

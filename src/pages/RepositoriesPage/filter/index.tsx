@@ -1,12 +1,14 @@
 import React from 'react'
 import { Container, Selector, Cleaner} from './styles'
 
-export default function Filter({languages} : FilterProps) {
+export default function Filter({languages, currentLanguage, onClick} : FilterProps) {
 
   const selectors = languages.map(({name, count, color}) => (
     <Selector
       key={name.toLowerCase()}
       color={color}
+      className={currentLanguage === name ? 'select' : ''}
+      onClick={() => onClick && onClick(name)}
     >
       <span>{name}</span>
       <span>{count}</span>
@@ -16,7 +18,7 @@ export default function Filter({languages} : FilterProps) {
   return (
     <Container>
       {selectors}
-      <Cleaner>
+      <Cleaner onClick={() => onClick && onClick(undefined)}>
         Limpar
       </Cleaner>
     </Container>
@@ -25,8 +27,11 @@ export default function Filter({languages} : FilterProps) {
 interface Languages {
   name: string;
   count: number;
-  color: string;
+  color: string
+
 }
 interface FilterProps{
   languages: Languages[];
+  currentLanguage: string | undefined;
+  onClick: (name:string | undefined) => void;
 }
