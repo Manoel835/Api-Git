@@ -16,7 +16,7 @@ const Repository = ({repository} : RepositoryProps) => {
 );
 }
 
-interface Repository{
+interface Repositorys{
   id: string;
   name: string;
   description: string;
@@ -24,7 +24,7 @@ interface Repository{
   language: string;
 }
 interface RepositoryProps{
-  repository: Repository;
+  repository: Repositorys;
 }
 
 

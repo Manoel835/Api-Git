@@ -3,6 +3,9 @@ import { Container } from './styles'
 import Repository from './Repository'
 
 const Repositories =({repositories, currentLanguage} : RepositoriesProps) => {
+  if (!repositories) {
+    return null;
+  }
   const repos = repositories
   .filter((repository) => currentLanguage === undefined || repository.language === currentLanguage)
   .map((repository) => (
@@ -21,7 +24,6 @@ interface Repo {
 }
 interface RepositoriesProps {
   currentLanguage: string | undefined;
-  repositories : Repo[];
-
+  repositories : Repo[] | undefined;
 }
 export default  Repositories
