@@ -20,3 +20,4 @@ Esse projeto é uma aplicação web que consulta perfis no GitHub através do lo
  - TypeScript
  - Styled Components
 
+<img  src="src/assets/Exemplo.png">
