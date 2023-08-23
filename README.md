@@ -19,5 +19,5 @@ Esse projeto é uma aplicação web que consulta perfis no GitHub através do lo
  - React
  - TypeScript
  - Styled Components
-
+## Exemplo
 <img  src="src/assets/Exemplo.png">
