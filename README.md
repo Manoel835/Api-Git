@@ -6,9 +6,9 @@ Esse projeto é uma aplicação web que consulta perfis no GitHub através do lo
 
 #### Retorna os Repositório 
 
-```http
+`http
   GET /users/${login}/repos
-```
+`
 
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
